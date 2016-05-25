@@ -11,7 +11,7 @@
     "dependencies": {
         "vows": "0.7.x",
         "step": "0.0.x",
-        "set-immediate": "~0.1.1"
+        "setimmediate": "^1.0.4"
     },
     "repository": { "type":  "git",
                     "url":   "http://github.com/e14n/databank.git" }
