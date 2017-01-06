@@ -24,6 +24,6 @@
     "url": "http://github.com/e14n/databank.git"
   },
   "devDependencies": {
-    "vows": "0.7.x"
+    "vows": "^0.8.1"
   }
 }
