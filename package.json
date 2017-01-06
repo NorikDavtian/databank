@@ -19,6 +19,7 @@
     "step": "0.0.x",
     "setimmediate": "^1.0.4"
   },
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "http://github.com/e14n/databank.git"
