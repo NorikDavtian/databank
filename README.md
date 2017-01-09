@@ -120,15 +120,15 @@ The class has a static method for for initializing an instance:
 
   This is the place you should usually pass in a schema parameter.
 
-    var bank = Databank.get('redis', {schema: {person: {pkey: "email"}}});
-
-    bank.connect({}, function(err) {
-        if (err) {
-            console.log("Couldn't connect to databank: " + err.message);
-        } else {
-            // ...
-        }
-    });
+      var bank = Databank.get('redis', {schema: {person: {pkey: "email"}}});
+      
+      bank.connect({}, function(err) {
+          if (err) {
+              console.log("Couldn't connect to databank: " + err.message);
+          } else {
+              // ...
+          }
+      });
 
 There's another static method to change how `get()` works:
 
@@ -183,18 +183,18 @@ The databank interface has these methods:
 
   Common error type here is `NoSuchThingError` if the databank has no such object.
 
-    bank.read('Book', '978-0141439600', function(err, user) {
-        if (err instanceof NoSuchThingError) {
-            res.writeHead(404, {'Content-Type': 'application/json'});
-            res.end(JSON.stringify(err.message));
-        } else if (err) {
-            res.writeHead(500, {'Content-Type': 'application/json'});
-            res.end(JSON.stringify(err.message));
-        } else {
-            res.writeHead(200, {'Content-Type': 'application/json'});
-            res.end(JSON.stringify(user));
-        }
-    });
+      bank.read('Book', '978-0141439600', function(err, user) {
+          if (err instanceof NoSuchThingError) {
+              res.writeHead(404, {'Content-Type': 'application/json'});
+              res.end(JSON.stringify(err.message));
+          } else if (err) {
+              res.writeHead(500, {'Content-Type': 'application/json'});
+              res.end(JSON.stringify(err.message));
+          } else {
+              res.writeHead(200, {'Content-Type': 'application/json'});
+              res.end(JSON.stringify(user));
+          }
+      });
 
 * `update(type, id, value, onCompletion)`
 
@@ -236,23 +236,23 @@ The databank interface has these methods:
 
   You're also on your own on sorting.
 
-    function getModerators(callback) {
-        var results = [];
-
-        bank.search('user', {role: 'moderator'}, function(result) {
-                        results.push(result);
-                    },
-                    function(err) {
-                        if (err) {
-                            callback(err, null);
-                        } else {
-                            results.sort(function(a, b) {
-                                return a.created - b.created;
-                            });
-                            callback(null, results);
-                        }
-                    });
-    }
+      function getModerators(callback) {
+          var results = [];
+      
+          bank.search('user', {role: 'moderator'}, function(result) {
+                          results.push(result);
+                      },
+                      function(err) {
+                          if (err) {
+                              callback(err, null);
+                          } else {
+                              results.sort(function(a, b) {
+                                  return a.created - b.created;
+                              });
+                              callback(null, results);
+                          }
+                      });
+      }
 
 * `scan(type, onResult, onCompletion)`
 
