@@ -51,9 +51,10 @@ var types = [
     "song",
     "user",
     "bird",
-    "tree"
+    "tree",
+    "bell"
 ];
-    
+
 for (var i = 0; i < types.length; i++) {
     params[types[i]] = {driver: 'memory', params: {}};
 };
@@ -61,4 +62,3 @@ for (var i = 0; i < types.length; i++) {
 var suite = databank.DriverTest('partitioning', params);
 
 suite['export'](module);
-
