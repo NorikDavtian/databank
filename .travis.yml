@@ -1,5 +1,12 @@
 language: node_js
 node_js:
   - "0.10"
+  - "0.12"
   - "4"
   - "6"
+notifications:
+ irc:
+   channels:
+     - "chat.freenode.net#pump.io"
+   on_success: change
+   on_failure: change
