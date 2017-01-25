@@ -52,7 +52,8 @@ var types = [
     "user",
     "bird",
     "tree",
-    "bell"
+    "bell",
+    "coffees-drunk"
 ];
 
 for (var i = 0; i < types.length; i++) {

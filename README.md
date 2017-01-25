@@ -121,7 +121,7 @@ The class has a static method for for initializing an instance:
   This is the place you should usually pass in a schema parameter.
 
       var bank = Databank.get('redis', {schema: {person: {pkey: "email"}}});
-      
+
       bank.connect({}, function(err) {
           if (err) {
               console.log("Couldn't connect to databank: " + err.message);
@@ -238,7 +238,7 @@ The databank interface has these methods:
 
       function getModerators(callback) {
           var results = [];
-      
+
           bank.search('user', {role: 'moderator'}, function(result) {
                           results.push(result);
                       },
@@ -286,23 +286,41 @@ The databank interface has these methods:
 
 These are special shims for integer values.
 
+* `incrBy(type, id, n, onCompletion)`
+
+  Increments the integer value of `type` and `id` by
+  `n` steps. `onCompletion` takes two params: an error, and the resulting
+  integer value. If integer value doesn't yet exists, goes to `n`.
+
+  Defaults to a `read` and an `update` or `create`, but drivers can
+  override to do an atomic increment.
+
+* `decrBy(type, id, n, onCompletion)`
+
+  Decrements the integer value of `type` and `id` by
+  `n`. `onCompletion` takes two params: an error, and the resulting
+  integer value. If integer value doesn't yet exists, goes to -1.
+
+  Defaults to a `read` and an `update` or `create`, but drivers can
+  override to do an atomic decrement.
+
 * `incr(type, id, onCompletion)`
 
   Increments the integer value of `type` and `id` by
   one. `onCompletion` takes two params: an error, and the resulting
   integer value. If integer value doesn't yet exists, goes to 1.
 
-  Defaults to a `read` and an `update` or `create`, but drivers can
-  override to do an atomic increment.
+  Defaults to `incrBy` with `n` = 1, but drivers can override to do an atomic
+  increment.
 
 * `decr(type, id, onCompletion)`
 
-  Increments the integer value of `type` and `id` by
+  Decrements the integer value of `type` and `id` by
   one. `onCompletion` takes two params: an error, and the resulting
   integer value. If integer value doesn't yet exists, goes to -1.
 
-  Defaults to a `read` and an `update` or `create`, but drivers can
-  override to do an atomic decrement.
+  Defaults to `decrBy` with `n` = 1, but drivers can override to do an atomic
+  increment.
 
 ## Arrays
 
