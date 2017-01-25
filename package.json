@@ -15,7 +15,7 @@
   },
   "description": "Abstraction layer for JSON storage",
   "dependencies": {
-    "set-immediate": "^0.1.1",
+    "setimmediate": "^1.0.5",
     "step": "^1.0.0"
   },
   "license": "Apache-2.0",
