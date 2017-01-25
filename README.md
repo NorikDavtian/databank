@@ -299,10 +299,10 @@ These are special shims for integer values.
 
   Decrements the integer value of `type` and `id` by
   `n`. `onCompletion` takes two params: an error, and the resulting
-  integer value. If integer value doesn't yet exists, goes to -1.
+  integer value. If integer value doesn't yet exists, goes to -`n`.
 
-  Defaults to a `read` and an `update` or `create`, but drivers can
-  override to do an atomic decrement.
+  Defaults to `incrBy` with -1 * `n`, but drivers can override to do an atomic
+  increment.
 
 * `incr(type, id, onCompletion)`
 
@@ -320,7 +320,7 @@ These are special shims for integer values.
   integer value. If integer value doesn't yet exists, goes to -1.
 
   Defaults to `decrBy` with `n` = 1, but drivers can override to do an atomic
-  increment.
+  decrement.
 
 ## Arrays
 
