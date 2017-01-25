@@ -332,14 +332,31 @@ These are special shims for array values.
   `onCompletion` takes one param: an error. If array doesn't yet
   exists, it becomes a single-element array.
 
-  Defaults to a `read` and an `update` or `create`, but drivers can
-  override to do an atomic append.
+  Defaults to call `appendAll`, but drivers can override to do an atomic append.
 
 * `prepend(type, id, toPrepend, onCompletion)`
 
   Prepends the value `toPrepend` to the array at `type` and `id`.
   `onCompletion` takes one param: an error. If array doesn't yet
   exists, it becomes a single-element array.
+
+  Defaults to call `prependAll`, but drivers can override to do an atomic
+  prepend.
+
+* `appendAll(type, id, items, onCompletion)`
+
+  Appends the values in array `items` to the array at `type` and `id`.
+  `onCompletion` takes one param: an error. If array doesn't yet
+  exists, it becomes a new array consisting of `items`.
+
+  Defaults to a `read` and an `update` or `create`, but drivers can
+  override to do an atomic append.
+
+* `prependAll(type, id, items, onCompletion)`
+
+  Prepends the values in array `items` to the array at `type` and `id`.
+  `onCompletion` takes one param: an error. If array doesn't yet
+  exists, it becomes a new array consisting of `items`.
 
   Defaults to a `read` and an `update` or `create`, but drivers can
   override to do an atomic prepend.
