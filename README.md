@@ -405,6 +405,12 @@ These are special shims for array values.
 
   Defaults to call `removeAll` with `item`.
 
+* `length(type, id, onCompletion)`
+
+  Gets the length of the array value for `type` and `id`. Defaults to `read`
+  but drivers can override to give atomic results. `onCompletion` takes two
+  parameters: an `err` and the `length` results.
+
 # DatabankError
 
 This is a subclass of `Error` for stuff that went wrong with a
