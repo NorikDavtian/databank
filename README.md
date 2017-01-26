@@ -411,6 +411,12 @@ These are special shims for array values.
   but drivers can override to give atomic results. `onCompletion` takes two
   parameters: an `err` and the `length` results.
 
+* `truncate(type, id, length, onCompletion)`
+
+  Truncates the array value for `type` and `id` to new length `length`. Defaults
+  to `read` and `update` but drivers can override to give atomic results.
+  `onCompletion` takes one parameters: an `err`.
+
 # DatabankError
 
 This is a subclass of `Error` for stuff that went wrong with a

@@ -56,7 +56,8 @@ var types = [
     "coffees-drunk",
     "neighbors",
     "combo",
-    "headphones"
+    "headphones",
+    "messages"
 ];
 
 for (var i = 0; i < types.length; i++) {
