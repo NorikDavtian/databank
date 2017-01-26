@@ -390,8 +390,20 @@ These are special shims for array values.
 * `remove(type, id, item, onCompletion)`
 
   Like `Array.remove()`, removes the first instance of `item` in the
-  array at `type` and `id`. `onCompletion` takes one params: `err` for
-  error.
+  array at `type` and `id`. `onCompletion` takes one param: `err` for
+  error. NOTE: removing an item that doesn't exist in the array does *not*
+  generate an error.
+
+  Defaults to call `removeAll` with `item`.
+
+* `removeAll(type, id, items, onCompletion)`
+
+  Like `Array.remove()`, removes the first instance of each member of `items` in
+  the array at `type` and `id`. `onCompletion` takes one param: `err` for
+  error. NOTE: removing an item that doesn't exist in the array does *not*
+  generate an error.
+
+  Defaults to call `removeAll` with `item`.
 
 # DatabankError
 

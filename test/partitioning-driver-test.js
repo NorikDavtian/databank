@@ -54,7 +54,8 @@ var types = [
     "tree",
     "bell",
     "coffees-drunk",
-    "neighbors"
+    "neighbors",
+    "combo"
 ];
 
 for (var i = 0; i < types.length; i++) {
