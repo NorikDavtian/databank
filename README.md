@@ -370,10 +370,10 @@ These are special shims for array values.
   Defaults to read the whole array and pluck out the value, but some
   drivers might support atomic query of just one item.
 
-* `slice(type, id, start, length, onCompletion)`
+* `slice(type, id, begin, end, onCompletion)`
 
-  Like `Array.slice()`, gets the sub-array starting at index `start`
-  of length `length` of the array at `type` and `id`. `onCompletion`
+  Like `Array.slice()`, gets the sub-array starting at index `begin`
+  and ending at index `end` of the array at `type` and `id`. `onCompletion`
   takes two params: `err` for error, and `results` for the resulting
   slice.
 
